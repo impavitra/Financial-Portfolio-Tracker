@@ -47,7 +47,12 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOriginPatterns(List.of("*")); // Allow all origins for testing
+        configuration.setAllowedOriginPatterns(List.of(
+            "http://localhost:*",
+            "https://*.vercel.app",
+            "https://*.netlify.app",
+            "https://financial-portfolio-tracker-three.vercel.app"
+        ));
         configuration.setAllowedMethods(List.of("GET", "POST", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
