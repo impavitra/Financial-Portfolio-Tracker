@@ -23,7 +23,6 @@ A full-stack web application for managing financial portfolios with real-time st
 ### Prerequisites
 
 - Java 21
-- Node.js 18+
 - PostgreSQL
 
 ### Running Locally
@@ -49,7 +48,7 @@ docker-compose up --build
 
 ## 🚀 Live Demo
 
-### **Frontend**: [Your Frontend URL]
+### **Frontend**: https://financial-portfolio-tracker-rose.vercel.app/login
 
 - Deployed on Vercel/Netlify
 - Connected to backend API
@@ -71,10 +70,10 @@ docker-compose up --build
 - **H2 in-memory database** (no external database required for free tier)
 - **Free tier** - may take 30-60 seconds to wake up after inactivity
 
-### Frontend (Vercel/Netlify)
+### Frontend (Vercel)
 
 - **Status**: ✅ Deployed
-- **Platform**: Vercel or Netlify
+- **Platform**: Vercel
 - **Connected to**: Backend API at https://financial-portfolio-tracker.onrender.com
 
 ## API Endpoints
@@ -148,21 +147,6 @@ docker-compose up --build --force-recreate
 - `POSTGRES_PASSWORD=Pavitra@7019`
 - `JWT_SECRET=mySecretKey123456789012345678901234567890`
 - `ALPHA_VANTAGE_API_KEY=demo`
-
-## Troubleshooting
-
-### 502 Bad Gateway Error
-
-- **Wait 2-3 minutes** - Free tier takes time to start
-- **Check Render logs** for error messages
-- **Service spins down** after 15 minutes of inactivity
-- **First request** after spin-down takes 30-60 seconds
-
-### Docker Issues
-
-- **Port conflicts**: Make sure ports 5432 and 8080 are available
-- **Build issues**: Run `docker-compose up --build --force-recreate`
-- **Database connection**: Wait for PostgreSQL to fully start before backend
 
 ## Backend
 
