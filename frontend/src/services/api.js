@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://financial-portfolio-tracker.onrender.com/api";
+const API_BASE_URL = "http://localhost:8081/api";
 
 // Create axios instance
 const api = axios.create({
