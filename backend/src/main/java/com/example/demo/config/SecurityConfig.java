@@ -28,8 +28,11 @@ public class SecurityConfig {
                 .cors().configurationSource(corsConfigurationSource()) // enable CORS with custom config
                 .and()
                 .csrf().disable()
+                .headers(headers -> headers.frameOptions().disable()) // Allow H2 console frames
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/actuator/**").permitAll()
+                        .requestMatchers("/h2-console/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
