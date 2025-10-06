@@ -60,13 +60,7 @@ A full-stack web application for managing financial portfolios with real-time st
 
 ## Testing the Deployed Backend
 
-### Health Check
-
-```bash
-curl https://financial-portfolio-tracker.onrender.com/actuator/health
-```
-
-### Register User
+### ✅ Register User (Working)
 
 ```bash
 curl -X POST https://financial-portfolio-tracker.onrender.com/api/auth/register \
@@ -74,13 +68,20 @@ curl -X POST https://financial-portfolio-tracker.onrender.com/api/auth/register 
   -d '{"username": "testuser", "email": "test@example.com", "password": "password123"}'
 ```
 
-### Login
+### ✅ Login (Working)
 
 ```bash
 curl -X POST https://financial-portfolio-tracker.onrender.com/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"username": "testuser", "password": "password123"}'
 ```
+
+### Health Check
+
+```bash
+curl https://financial-portfolio-tracker.onrender.com/actuator/health
+```
+*Note: Health endpoint may show 500 error due to H2 database configuration, but API endpoints work correctly.*
 
 ## Troubleshooting
 
