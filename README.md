@@ -29,6 +29,7 @@ A full-stack web application for managing financial portfolios with real-time st
 ### Running Locally
 
 #### Option 1: Docker Compose (Recommended)
+
 ```bash
 # Start both backend and PostgreSQL with one command
 docker-compose up --build
@@ -39,6 +40,7 @@ docker-compose up --build
 ```
 
 #### Option 2: Manual Setup
+
 1. **Clone the repository**
 2. **Start PostgreSQL** (or use Docker): `docker run -d -p 5432:5432 -e POSTGRES_DB=portfolio_db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=Pavitra@7019 postgres:15`
 3. **Start the backend**: `cd backend && ./mvnw spring-boot:run`
@@ -48,10 +50,12 @@ docker-compose up --build
 ## 🚀 Live Demo
 
 ### **Frontend**: [Your Frontend URL]
+
 - Deployed on Vercel/Netlify
 - Connected to backend API
 
 ### **Backend**: https://financial-portfolio-tracker.onrender.com
+
 - Deployed on Render
 - API endpoints working
 - JWT authentication enabled
@@ -113,11 +117,13 @@ _Note: Health endpoint may show 500 error due to H2 database configuration, but 
 The project includes a `docker-compose.yml` file for easy local development setup:
 
 ### Services
-- **PostgreSQL Database**: Port 5432
+
+- **PostgreSQL Database**: Port 5433 (external), 5432 (internal)
 - **Backend API**: Port 8080
 - **Networking**: Services communicate via internal network
 
 ### Commands
+
 ```bash
 # Start all services
 docker-compose up --build
@@ -136,6 +142,7 @@ docker-compose up --build --force-recreate
 ```
 
 ### Environment Variables
+
 - `POSTGRES_DB=portfolio_db`
 - `POSTGRES_USER=postgres`
 - `POSTGRES_PASSWORD=Pavitra@7019`
