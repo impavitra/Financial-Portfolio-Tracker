@@ -14,13 +14,14 @@ A full-stack web application for managing financial portfolios with real-time st
 
 - **Frontend**: React, Vite, Tailwind CSS
 - **Backend**: Spring Boot, Java 21, Maven
-- **Database**: PostgreSQL
+- **Database**: H2 (in-memory for free tier), PostgreSQL (local development)
 - **Authentication**: JWT
 - **Deployment**: Render (Backend), Vercel/Netlify (Frontend)
 
 ## Quick Start
 
 ### Prerequisites
+
 - Java 21
 - Node.js 18+
 - PostgreSQL
@@ -35,13 +36,16 @@ A full-stack web application for managing financial portfolios with real-time st
 ## Deployment
 
 ### Backend (Render)
+
 - **Live URL**: https://financial-portfolio-tracker.onrender.com
 - **Health Check**: https://financial-portfolio-tracker.onrender.com/actuator/health
 - **Auto-deploys** from main branch
 - **Uses Docker** for containerization
+- **H2 in-memory database** (no external database required for free tier)
 - **Free tier** - may take 30-60 seconds to wake up after inactivity
 
 ### Frontend (Vercel/Netlify)
+
 - Deploy the `frontend` folder to Vercel or Netlify
 - Update API endpoints to point to the deployed backend
 
@@ -57,11 +61,13 @@ A full-stack web application for managing financial portfolios with real-time st
 ## Testing the Deployed Backend
 
 ### Health Check
+
 ```bash
 curl https://financial-portfolio-tracker.onrender.com/actuator/health
 ```
 
 ### Register User
+
 ```bash
 curl -X POST https://financial-portfolio-tracker.onrender.com/api/auth/register \
   -H "Content-Type: application/json" \
@@ -69,6 +75,7 @@ curl -X POST https://financial-portfolio-tracker.onrender.com/api/auth/register 
 ```
 
 ### Login
+
 ```bash
 curl -X POST https://financial-portfolio-tracker.onrender.com/api/auth/login \
   -H "Content-Type: application/json" \
@@ -78,6 +85,7 @@ curl -X POST https://financial-portfolio-tracker.onrender.com/api/auth/login \
 ## Troubleshooting
 
 ### 502 Bad Gateway Error
+
 - **Wait 2-3 minutes** - Free tier takes time to start
 - **Check Render logs** for error messages
 - **Service spins down** after 15 minutes of inactivity
