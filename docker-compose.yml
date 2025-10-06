@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    container_name: portfolio-db
+    environment:
+      POSTGRES_DB: portfolio_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Pavitra@7019
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - portfolio-network
+
+  # Backend Spring Boot Application
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: portfolio-backend
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/portfolio_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Pavitra@7019
+      JWT_SECRET: mySecretKey123456789012345678901234567890
+      ALPHA_VANTAGE_API_KEY: demo
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - portfolio-network
+    volumes:
+      - ./backend:/app
+      - /app/target
+
+volumes:
+  postgres_data:
+
+networks:
+  portfolio-network:
+    driver: bridge

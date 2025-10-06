@@ -22,5 +22,5 @@ RUN mvn clean package -DskipTests
 # Expose port
 EXPOSE 8080
 
-# Run the application with production profile
-CMD ["java", "-Dspring.profiles.active=prod", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
+# Run the application with production profile (can be overridden for local development)
+CMD ["java", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE:-prod}", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]

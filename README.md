@@ -28,10 +28,33 @@ A full-stack web application for managing financial portfolios with real-time st
 
 ### Running Locally
 
+#### Option 1: Docker Compose (Recommended)
+```bash
+# Start both backend and PostgreSQL with one command
+docker-compose up --build
+
+# Access the application
+# Backend: http://localhost:8080
+# Frontend: http://localhost:5173 (run separately)
+```
+
+#### Option 2: Manual Setup
 1. **Clone the repository**
-2. **Start the backend**: `cd backend && ./mvnw spring-boot:run`
-3. **Start the frontend**: `cd frontend && npm install && npm run dev`
-4. **Access the application**: http://localhost:5173
+2. **Start PostgreSQL** (or use Docker): `docker run -d -p 5432:5432 -e POSTGRES_DB=portfolio_db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=Pavitra@7019 postgres:15`
+3. **Start the backend**: `cd backend && ./mvnw spring-boot:run`
+4. **Start the frontend**: `cd frontend && npm install && npm run dev`
+5. **Access the application**: http://localhost:5173
+
+## 🚀 Live Demo
+
+### **Frontend**: [Your Frontend URL]
+- Deployed on Vercel/Netlify
+- Connected to backend API
+
+### **Backend**: https://financial-portfolio-tracker.onrender.com
+- Deployed on Render
+- API endpoints working
+- JWT authentication enabled
 
 ## Deployment
 
@@ -46,8 +69,9 @@ A full-stack web application for managing financial portfolios with real-time st
 
 ### Frontend (Vercel/Netlify)
 
-- Deploy the `frontend` folder to Vercel or Netlify
-- Update API endpoints to point to the deployed backend
+- **Status**: ✅ Deployed
+- **Platform**: Vercel or Netlify
+- **Connected to**: Backend API at https://financial-portfolio-tracker.onrender.com
 
 ## API Endpoints
 
@@ -81,7 +105,42 @@ curl -X POST https://financial-portfolio-tracker.onrender.com/api/auth/login \
 ```bash
 curl https://financial-portfolio-tracker.onrender.com/actuator/health
 ```
-*Note: Health endpoint may show 500 error due to H2 database configuration, but API endpoints work correctly.*
+
+_Note: Health endpoint may show 500 error due to H2 database configuration, but API endpoints work correctly._
+
+## 🐳 Docker Compose
+
+The project includes a `docker-compose.yml` file for easy local development setup:
+
+### Services
+- **PostgreSQL Database**: Port 5432
+- **Backend API**: Port 8080
+- **Networking**: Services communicate via internal network
+
+### Commands
+```bash
+# Start all services
+docker-compose up --build
+
+# Start in background
+docker-compose up -d --build
+
+# Stop all services
+docker-compose down
+
+# View logs
+docker-compose logs -f
+
+# Rebuild and restart
+docker-compose up --build --force-recreate
+```
+
+### Environment Variables
+- `POSTGRES_DB=portfolio_db`
+- `POSTGRES_USER=postgres`
+- `POSTGRES_PASSWORD=Pavitra@7019`
+- `JWT_SECRET=mySecretKey123456789012345678901234567890`
+- `ALPHA_VANTAGE_API_KEY=demo`
 
 ## Troubleshooting
 
@@ -91,6 +150,12 @@ curl https://financial-portfolio-tracker.onrender.com/actuator/health
 - **Check Render logs** for error messages
 - **Service spins down** after 15 minutes of inactivity
 - **First request** after spin-down takes 30-60 seconds
+
+### Docker Issues
+
+- **Port conflicts**: Make sure ports 5432 and 8080 are available
+- **Build issues**: Run `docker-compose up --build --force-recreate`
+- **Database connection**: Wait for PostgreSQL to fully start before backend
 
 ## Backend
 
