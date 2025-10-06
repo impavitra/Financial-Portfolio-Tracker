@@ -35,7 +35,7 @@ A full-stack web application for managing financial portfolios with real-time st
 docker-compose up --build
 
 # Access the application
-# Backend: http://localhost:8080
+# Backend: http://localhost:8082
 # Frontend: http://localhost:5173 (run separately)
 ```
 
@@ -118,8 +118,8 @@ The project includes a `docker-compose.yml` file for easy local development setu
 
 ### Services
 
-- **PostgreSQL Database**: Port 5433 (external), 5432 (internal)
-- **Backend API**: Port 8080
+- **PostgreSQL Database**: Port 5434 (external), 5432 (internal)
+- **Backend API**: Port 8082 (external), 8080 (internal)
 - **Networking**: Services communicate via internal network
 
 ### Commands

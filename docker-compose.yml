@@ -10,7 +10,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: Pavitra@7019
     ports:
-      - "5433:5432"
+      - "5434:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -30,7 +30,7 @@ services:
       JWT_SECRET: mySecretKey123456789012345678901234567890
       ALPHA_VANTAGE_API_KEY: demo
     ports:
-      - "8080:8080"
+      - "8082:8080"
     depends_on:
       - postgres
     networks:
