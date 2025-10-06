@@ -59,7 +59,9 @@ export default function AssetTable({ assets, onRemoveAsset, loading = false }) {
           Portfolio Assets
         </h3>
       </div>
-      <div className="overflow-x-auto">
+      
+      {/* Desktop Table View */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full">
           <thead className="bg-gray-50">
             <tr>
@@ -156,6 +158,93 @@ export default function AssetTable({ assets, onRemoveAsset, loading = false }) {
             })}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Card View */}
+      <div className="md:hidden">
+        <div className="space-y-3 p-4">
+          {assets.map((asset) => {
+            const totalValue = asset.totalValue || 0;
+            // Mock day change data
+            const dayChange = Math.random() * 20 - 10;
+            const dayChangePercent =
+              asset.currentPrice > 0
+                ? (dayChange / asset.currentPrice) * 100
+                : 0;
+            const isPositive = dayChange >= 0;
+
+            return (
+              <div key={asset.id} className="bg-white border border-gray-200 rounded-lg p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-sm font-medium text-primary-700">
+                        {asset.ticker.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <div className="text-lg font-semibold text-gray-900">
+                        {asset.ticker}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {asset.quantity} shares
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => handleRemoveAsset(asset.ticker)}
+                    disabled={removingAsset === asset.ticker}
+                    className="text-error-600 hover:text-error-900 disabled:opacity-50 disabled:cursor-not-allowed p-1"
+                  >
+                    {removingAsset === asset.ticker ? (
+                      <div className="loading-spinner w-4 h-4" />
+                    ) : (
+                      <Trash2 className="w-5 h-5" />
+                    )}
+                  </button>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <div className="text-gray-500">Current Price</div>
+                    <div className="font-medium text-gray-900">
+                      ${asset.currentPrice?.toFixed(2) || "0.00"}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-gray-500">Total Value</div>
+                    <div className="font-medium text-gray-900">
+                      ${totalValue.toFixed(2)}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-3 pt-3 border-t border-gray-100">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-500">Day Change</span>
+                    <div
+                      className={clsx(
+                        "flex items-center text-sm font-medium",
+                        isPositive ? "text-success-600" : "text-error-600"
+                      )}
+                    >
+                      {isPositive ? (
+                        <TrendingUp className="w-4 h-4 mr-1" />
+                      ) : (
+                        <TrendingDown className="w-4 h-4 mr-1" />
+                      )}
+                      <span>
+                        {isPositive ? "+" : ""}${Math.abs(dayChange).toFixed(2)}
+                        ({isPositive ? "+" : ""}
+                        {dayChangePercent.toFixed(2)}%)
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

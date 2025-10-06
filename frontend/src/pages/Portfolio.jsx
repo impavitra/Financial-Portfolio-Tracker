@@ -130,7 +130,7 @@ export default function Portfolio() {
 
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div className="flex items-center gap-4">
             <button
               onClick={() => navigate("/dashboard")}
@@ -139,35 +139,37 @@ export default function Portfolio() {
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
                 {portfolio?.name}
               </h1>
-              <p className="text-gray-600">
+              <p className="text-sm sm:text-base text-gray-600">
                 {assets.length} asset{assets.length !== 1 ? "s" : ""} • Created{" "}
                 {new Date(portfolio?.createdAt).toLocaleDateString()}
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={fetchInsights}
               disabled={insightsLoading}
-              className="btn btn-secondary"
+              className="btn btn-secondary text-sm px-3 py-2 sm:px-4 sm:py-2"
             >
               {insightsLoading ? (
                 <div className="loading-spinner w-4 h-4" />
               ) : (
                 <Lightbulb className="w-4 h-4" />
               )}
-              Get Insights
+              <span className="hidden sm:inline ml-2">Get Insights</span>
+              <span className="sm:hidden">Insights</span>
             </button>
             <button
               onClick={() => setShowAddAssetModal(true)}
-              className="btn btn-primary"
+              className="btn btn-primary text-sm px-3 py-2 sm:px-4 sm:py-2"
             >
               <Plus className="w-4 h-4" />
-              Add Asset
+              <span className="hidden sm:inline ml-2">Add Asset</span>
+              <span className="sm:hidden">Add</span>
             </button>
           </div>
         </div>
@@ -261,10 +263,10 @@ export default function Portfolio() {
       {/* Insights Modal */}
       {showInsightsModal && insights && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[85vh] flex flex-col">
-            {/* Modal Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 flex-shrink-0">
-              <h2 className="text-xl font-semibold text-gray-900 flex items-center">
+          <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] flex flex-col">
+            {/* Modal Header - Reduced height */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 flex-shrink-0">
+              <h2 className="text-lg font-semibold text-gray-900 flex items-center">
                 <Lightbulb className="w-5 h-5 mr-2 text-primary-600" />
                 Portfolio Insights
               </h2>
@@ -272,20 +274,20 @@ export default function Portfolio() {
                 onClick={() => setShowInsightsModal(false)}
                 className="text-gray-400 hover:text-gray-600 transition-colors"
               >
-                <XCircle className="w-6 h-6" />
+                <XCircle className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Modal Body */}
-            <div className="p-6 overflow-y-auto flex-1 min-h-0">
+            {/* Modal Body - More space */}
+            <div className="p-4 overflow-y-auto flex-1 min-h-0">
               <InsightsPanel insights={insights} />
             </div>
 
-            {/* Modal Footer */}
-            <div className="flex justify-end gap-3 p-6 border-t border-gray-200 flex-shrink-0">
+            {/* Modal Footer - Reduced height */}
+            <div className="flex justify-end gap-3 px-6 py-4 border-t border-gray-200 flex-shrink-0">
               <button
                 onClick={() => setShowInsightsModal(false)}
-                className="btn btn-secondary"
+                className="btn btn-secondary text-sm px-4 py-2"
               >
                 Close
               </button>
@@ -294,7 +296,7 @@ export default function Portfolio() {
                   setShowInsightsModal(false);
                   fetchInsights();
                 }}
-                className="btn btn-primary"
+                className="btn btn-primary text-sm px-4 py-2"
               >
                 Refresh Insights
               </button>
