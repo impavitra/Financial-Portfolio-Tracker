@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://financial-portfolio-tracker.onrender.com/api";
+// Use local backend for development, deployed backend for production
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? "https://financial-portfolio-tracker.onrender.com/api"
+  : "http://localhost:8082/api";
 
 // Create axios instance
 const api = axios.create({
