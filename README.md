@@ -109,45 +109,6 @@ curl -X POST https://financial-portfolio-tracker.onrender.com/api/auth/login \
 curl https://financial-portfolio-tracker.onrender.com/actuator/health
 ```
 
-_Note: Health endpoint may show 500 error due to H2 database configuration, but API endpoints work correctly._
-
-## 🐳 Docker Compose
-
-The project includes a `docker-compose.yml` file for easy local development setup:
-
-### Services
-
-- **PostgreSQL Database**: Port 5434 (external), 5432 (internal)
-- **Backend API**: Port 8082 (external), 8080 (internal)
-- **Networking**: Services communicate via internal network
-
-### Commands
-
-```bash
-# Start all services
-docker-compose up --build
-
-# Start in background
-docker-compose up -d --build
-
-# Stop all services
-docker-compose down
-
-# View logs
-docker-compose logs -f
-
-# Rebuild and restart
-docker-compose up --build --force-recreate
-```
-
-### Environment Variables
-
-- `POSTGRES_DB=portfolio_db`
-- `POSTGRES_USER=postgres`
-- `POSTGRES_PASSWORD=Pavitra@7019`
-- `JWT_SECRET=mySecretKey123456789012345678901234567890`
-- `ALPHA_VANTAGE_API_KEY=demo`
-
 ## Backend
 
 - Backend document can be found [here](./backend/README.md)
