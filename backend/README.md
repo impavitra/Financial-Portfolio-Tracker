@@ -2,7 +2,7 @@
 
 A Spring Boot REST API for managing investment portfolios with real-time stock data integration and AI-powered insights.
 
-## 🚀 Features
+## Features
 
 - **User Authentication**: JWT-based secure authentication
 - **Portfolio Management**: Create, view, and manage investment portfolios
@@ -11,7 +11,7 @@ A Spring Boot REST API for managing investment portfolios with real-time stock d
 - **AI/ML Insights**: Diversification scoring, risk assessment, and investment recommendations
 - **Database**: PostgreSQL for persistent data storage
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Java 21**
 - **Spring Boot 3.5.6**
@@ -22,14 +22,14 @@ A Spring Boot REST API for managing investment portfolios with real-time stock d
 - **Lombok**
 - **Jackson** (JSON processing)
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Java 21+
 - Maven 3.6+
 - PostgreSQL 12+
 - Alpha Vantage API key (optional, for real-time data)
 
-## 🔧 Setup
+## Setup
 
 ### 1. Database Setup
 
@@ -74,7 +74,7 @@ java -jar target/demo-0.0.1-SNAPSHOT.jar
 
 The API will be available at `http://localhost:8081`
 
-## 📚 API Endpoints
+## API Endpoints
 
 ### Authentication
 
@@ -157,7 +157,7 @@ The API will be available at `http://localhost:8081`
 }
 ```
 
-## 🔐 Authentication
+## Authentication
 
 All endpoints (except `/api/auth/**`) require JWT authentication. Include the token in the Authorization header:
 
@@ -165,7 +165,7 @@ All endpoints (except `/api/auth/**`) require JWT authentication. Include the to
 Authorization: Bearer <your-jwt-token>
 ```
 
-## 📊 Database Schema
+## Database Schema
 
 ### Users Table
 
@@ -190,7 +190,7 @@ Authorization: Bearer <your-jwt-token>
 - `current_price`
 - `added_at`
 
-## 🔄 Stock Data Integration
+## Stock Data Integration
 
 The application integrates with Alpha Vantage API for real-time stock data:
 
@@ -207,7 +207,7 @@ The system supports all major stock tickers including:
 - ETFs: VTI, SPY, QQQ, etc.
 - International stocks: Various global markets
 
-## 🤖 AI/ML Features
+## AI/ML Features
 
 ### Diversification Score
 
@@ -237,7 +237,7 @@ The API includes comprehensive error handling:
 - **404 Not Found**: Resource not found
 - **500 Internal Server Error**: Server-side errors
 
-## 📝 Example Usage
+## Example Usage
 
 ### 1. Register and Login
 
@@ -296,6 +296,6 @@ mvn clean package -Pproduction
 
 The application uses Hibernate auto-update mode. For production, consider using Flyway or Liquibase for database migrations.
 
-## 📄 License
+## License
 
 This project is part of a portfolio management system assignment.
