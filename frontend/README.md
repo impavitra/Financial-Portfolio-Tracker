@@ -2,7 +2,7 @@
 
 A modern React.js single-page application for managing investment portfolios with real-time data visualization and AI-powered insights.
 
-## 🚀 Features
+## Features
 
 - **User Authentication**: Secure login and registration with JWT tokens
 - **Portfolio Management**: Create, view, and manage multiple investment portfolios
@@ -13,7 +13,7 @@ A modern React.js single-page application for managing investment portfolios wit
 - **Responsive Design**: Mobile-first, fully responsive interface
 - **Modern UX**: Clean, intuitive design with loading states and error handling
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **React 18** with functional components and hooks
 - **Vite** for fast development and building
@@ -24,7 +24,7 @@ A modern React.js single-page application for managing investment portfolios wit
 - **React Hot Toast** for notifications
 - **CSS3** with custom properties and modern layout
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js 16+
 - npm or yarn
@@ -53,29 +53,7 @@ The application will be available at `http://localhost:3000`
 npm run build
 ```
 
-## 🎨 Design System
-
-### Color Palette
-
-- **Primary**: Blue (#0ea5e9)
-- **Success**: Green (#22c55e)
-- **Warning**: Amber (#f59e0b)
-- **Error**: Red (#ef4444)
-- **Gray Scale**: 50-900 range
-
-### Typography
-
-- **Font Family**: Inter (Google Fonts)
-- **Weights**: 300, 400, 500, 600, 700
-
-### Components
-
-- **Cards**: Rounded corners with subtle shadows
-- **Buttons**: Multiple variants (primary, secondary, danger)
-- **Forms**: Consistent styling with validation states
-- **Modals**: Overlay dialogs with backdrop blur
-
-## 📱 Responsive Design
+## Responsive Design
 
 The application is fully responsive with breakpoints:
 
@@ -83,14 +61,14 @@ The application is fully responsive with breakpoints:
 - **Tablet**: 640px - 1024px
 - **Desktop**: > 1024px
 
-## 🔐 Authentication Flow
+## Authentication Flow
 
 1. **Login/Register**: Users authenticate with username/password
 2. **JWT Storage**: Tokens stored in localStorage
 3. **Auto-redirect**: Authenticated users redirected to dashboard
 4. **Token Validation**: Automatic token verification on app load
 
-## 📊 Data Visualization
+## Data Visualization
 
 ### Portfolio Allocation Chart
 
@@ -106,7 +84,7 @@ The application is fully responsive with breakpoints:
 - **Asset Count**: Number of holdings
 - **Average Value**: Mean asset value
 
-## 🤖 AI Insights Features
+## AI Insights Features
 
 ### Diversification Score
 
@@ -126,7 +104,7 @@ The application is fully responsive with breakpoints:
 - **Categories**: Diversification, asset allocation, risk management
 - **Actionable**: Specific suggestions for improvement
 
-## 🎯 User Experience
+## User Experience
 
 ### Loading States
 
@@ -146,7 +124,7 @@ The application is fully responsive with breakpoints:
 - **Helpful Text**: Guidance for next steps
 - **Call-to-Actions**: Direct paths to functionality
 
-## 🔄 API Integration
+## API Integration
 
 ### Endpoints Used
 
@@ -166,7 +144,7 @@ The application is fully responsive with breakpoints:
 - **Authentication**: Automatic logout on token expiry
 - **Validation**: Client-side and server-side validation
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -193,43 +171,3 @@ src/
 ├── main.jsx            # App entry point
 └── index.css           # Global styles
 ```
-
-## 🚀 Performance Optimizations
-
-- **Code Splitting**: Lazy loading of routes
-- **Memoization**: React.memo for expensive components
-- **Bundle Size**: Tree shaking and minimal dependencies
-- **Caching**: API response caching where appropriate
-
-## 🔧 Development
-
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-
-### Code Style
-
-- **ESLint**: Configured for React best practices
-- **Prettier**: Code formatting (if configured)
-- **Conventions**: Functional components, hooks, modern JavaScript
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **CORS Errors**: Ensure backend CORS is configured for localhost:3000
-2. **API Connection**: Verify backend is running on port 8081
-3. **Build Errors**: Clear node_modules and reinstall dependencies
-
-### Debug Mode
-
-- **React DevTools**: Browser extension for debugging
-- **Network Tab**: Monitor API calls and responses
-- **Console**: Check for JavaScript errors
-
-## 📄 License
-
-This project is part of a portfolio management system assignment.
